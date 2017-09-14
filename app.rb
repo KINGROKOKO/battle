@@ -24,9 +24,13 @@ class Battle < Sinatra::Base
 
   get '/hit' do
     @game = $game
-    @game.hit(@game.player_1)
-    @game.switch
+    @game.hit(@game.opponent_of(@current_player))
     erb :hit
+  end
+
+  post '/switch' do
+    $game.switch
+    redirect '/play'
   end
 
   run! if app_file == $0

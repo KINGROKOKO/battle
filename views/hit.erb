@@ -1,5 +1,9 @@
-<center><h1><%= @game.player_2.name %> HIT <%= @game.player_1.name %></h1></center>
+<center><h1><%= @game.current_player.name %> HIT <%= @game.opponent_of(@game.current_player).name %></h1></center>
 
-<center><h2><%= @game.player_1.name %>: <%= @game.player_1.hit_points %>HP</h2></center>
+<center><h2><%= @game.opponent_of(@game.current_player).name %>: <%= @game.opponent_of(@game.current_player).hit_points %>HP</h2></center>
 
-<a href="/play">OK</a>
+<center>
+  <form action="/switch" method="post">
+    <input type="submit" value="OK">
+  </form>
+</center>

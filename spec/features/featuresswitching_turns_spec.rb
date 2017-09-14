@@ -3,7 +3,6 @@ feature 'Switch turns' do
 
     scenario 'at the start of the game' do
       sign_in_and_play
-      puts page.body
       expect(page).to have_content "Zoe's turn"
     end
 
