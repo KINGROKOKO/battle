@@ -25,6 +25,7 @@ class Battle < Sinatra::Base
   get '/hit' do
     @game = $game
     @game.hit(@game.player_1)
+    @game.switch
     erb :hit
   end
 
